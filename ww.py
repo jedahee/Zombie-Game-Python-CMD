@@ -1,10 +1,9 @@
 # python 3.7.1
 import random
-
 tipos_enemigos = ["ogro", "zombie", "trasgo"]
 lista_mun = [2, 3, 4, 5]
 campo_enemigo = []
-pos_ene = 70
+pos_ene = 63
 
 
 def menu():
@@ -17,7 +16,7 @@ def menu():
     3) SALIR
     """)
 
-
+   
 class arma():
     nombre = "Pistola"
     dano = 10
@@ -32,26 +31,22 @@ class me():
     posible = 100
     probabilidad = 50
 
-
 class ogro():
     nombre = "Ogro"
     vida = 20
     dinero = 35
     dano = 7
-
-
 class zombie():
     nombre = "Zombie"
     vida = 15
     dinero = 25
     dano = 5
-
-
 class trasgo():
     nombre = "Trasgo"
     vida = 10
     dinero = 10
     dano = 2
+        
 
 
 menu()
@@ -86,23 +81,26 @@ if opc == "1":
         opc2 = input(">> ")
         if opc2 == "1":
             if len(campo_enemigo) > 0:
-
-                for i in range(len(campo_enemigo)):
-                    print("[", i + 1, "]", campo_enemigo[i].nombre, "(", campo_enemigo[i].vida, ")")
+    
+                for i in range(len(campo_enemigo)): 
+                    print("[",i+1,"]", campo_enemigo[i].nombre, "(", campo_enemigo[i].vida, ")")
 
             else:
                 print("NO HAY ENEMIGOS")
-
-            if len(campo_enemigo) > 0:
+            
+            if len(campo_enemigo) > 0 and arma.municion > 0:
+                
                 print("A que enemigo quieres atacar...")
                 opc3 = int(input(">> "))
                 arma.municion -= 1
-                campo_enemigo[opc3 - 1].vida -= arma.dano
+                campo_enemigo[opc3-1].vida -= arma.dano
 
-                if campo_enemigo[opc3 - 1].vida <= 0:
-                    me.dinero += campo_enemigo[opc3 - 1].dinero
-                    campo_enemigo.pop(opc3 - 1)
+                if campo_enemigo[opc3-1].vida <= 0:
+                    me.dinero += campo_enemigo[opc3-1].dinero
+                    campo_enemigo.pop(opc3-1)
                     contador -= 1
+            if arma.municion <= 0:
+                print("NO TIENES MUNICION\n")
 
             print(""" 
             ===========================
