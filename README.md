@@ -2,6 +2,8 @@
 
 _**Zombie** game made with **Python**!_
 
+_You can attack or search, use your options wisely to kill all enemies._
+
 ![image](https://github.com/jedahee/Zombie-Game-Python-CMD/assets/56111700/c3e3a426-7305-4953-9030-cc3d0fd1ed5b)
 
 ## Getting Started 🚀
